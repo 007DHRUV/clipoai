@@ -108,13 +108,13 @@ curl http://localhost:8000/video-metadata/{video_id}
 Run Linting, Build, Format, etc.
 Use the Makefile commands:
 Command	Description
-make help	Displays a help message listing all available commands.
-make up	Builds and starts all containers (FastAPI, Celery, Redis, MongoDB) in detached mode.
-make down	Stops and removes all containers.
-make shell	Opens a shell session inside the FastAPI container.
-make rebuild	Stops, rebuilds, and restarts all containers.
-make clean	Removes files in uploads/, thumbnails/, __pycache__, and .pytest_cache.
-make clean-all	Stops containers and performs a full project cleanup.
+1) make help	Displays a help message listing all available commands.
+2) make up	Builds and starts all containers (FastAPI, Celery, Redis, MongoDB) in detached mode.
+3) make down	Stops and removes all containers.
+4) make shell	Opens a shell session inside the FastAPI container.
+5) make rebuild	Stops, rebuilds, and restarts all containers.
+6) make clean	Removes files in uploads/, thumbnails/, __pycache__, and .pytest_cache.
+7) make clean-all	Stops containers and performs a full project cleanup.
 bash
 Copy code
 
