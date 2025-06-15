@@ -84,7 +84,7 @@ CELERY_RESULT_BACKEND=redis://redis:6379/0
 bash
 Copy code
 docker-compose up --build
-FastAPI will be available at: http://localhost:8000
+FastAPI will be available at:  http://localhost:8000/docs
 
 Static thumbnails: http://localhost:8000/thumbnails/
 
