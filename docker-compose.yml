@@ -1,0 +1,43 @@
+version: "3.9"
+
+services:
+  api:
+    build: .
+    container_name: clipo-api
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./uploads:/app/uploads
+      - ./thumbnails:/app/thumbnails
+    depends_on:
+      - redis
+      - mongo
+
+  celery_worker:
+    build: .
+    container_name: clipo-celery
+    restart: always
+    command: celery -A app.main.celery_app worker --loglevel=info
+    env_file:
+      - .env
+    volumes:
+      - ./uploads:/app/uploads
+      - ./thumbnails:/app/thumbnails
+    depends_on:
+      - redis
+      - mongo
+
+  redis:
+    image: redis:7
+    container_name: clipo-redis
+    restart: always
+
+  mongo:
+    image: mongo:6
+    container_name: clipo-mongo
+    restart: always
+    ports:
+      - "27017:27017"
